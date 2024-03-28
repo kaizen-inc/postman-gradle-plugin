@@ -1,0 +1,18 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.23' apply false
+//    id 'com.github.node-gradle.node' version '7.0.2' apply false
+}
+
+group = 'inc.kaizen.plugin.gradle'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+
+//tasks.register('helloWorld', NodeTask) {
+//    dependsOn 'npmInstall'
+//    script = file("hello.js")
+//}
+
