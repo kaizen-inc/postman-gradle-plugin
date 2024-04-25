@@ -1,9 +1,9 @@
 package inc.kaizen.plugin.gradle.task
 
 import inc.kaizen.plugin.gradle.PostmanGradlePlugin
+import inc.kaizen.plugin.gradle.postman.NewmanRunner
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
-import org.gradle.work.InputChanges
 
 open class RunPostmanCollectionTask : DefaultTask() {
 
@@ -13,14 +13,14 @@ open class RunPostmanCollectionTask : DefaultTask() {
 
     init {
         group = PostmanGradlePlugin.PLUGIN_GROUP
-        outputs.upToDateWhen { true }
+//        dependsOn(listOf(NodeSetupTask.NAME))
+//        outputs.upToDateWhen { true }
     }
 
     @TaskAction
-    fun execute(inputs: InputChanges) { // InputChanges parameter
-
-        val msg = if (inputs.isIncremental) "CHANGED inputs are out of date"
-        else "ALL inputs are out of date"
-        println(msg)
+    fun execute(/*inputs: InputChanges*/) {
+        val newmanRunner = NewmanRunner()
+        val result = newmanRunner.run(project)
+//        println(result)
     }
 }

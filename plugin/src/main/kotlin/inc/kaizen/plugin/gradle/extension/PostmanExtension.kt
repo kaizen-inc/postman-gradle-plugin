@@ -5,37 +5,45 @@ import org.gradle.api.Project
 
 open class PostmanExtension(project: Project) {
 
-    private val environment = project.objects.fileProperty()
-    private val globals = project.objects.fileProperty()
-    private val iterationData = project.objects.fileProperty()
-    private val iterationCount = project.objects.property(Int::class.java)
-    private val folder = project.objects.fileTree()
-    private val workingDir = project.objects.directoryProperty()
-    private val noInsecureFileRead = project.objects.property(Boolean::class.java).convention(false)
-    private val exportEnvironment = project.objects.fileProperty()
-    private val exportGlobals = project.objects.fileProperty()
-    private val exportCollection  = project.objects.fileProperty()
-    private val timeout  = project.objects.property(Long::class.java)
-    private val timeoutRequest  = project.objects.property(Long::class.java)
-    private val timeoutScript  = project.objects.property(Long::class.java)
-    private val insecure = project.objects.property(Boolean::class.java).convention(false)
-    private val ignoreRedirects = project.objects.property(Boolean::class.java).convention(false)
-    private val delayRequest = project.objects.property(Long::class.java)
-    private val cookieJar = project.objects.fileProperty()
-    private val exportCookieJar = project.objects.fileProperty()
-    private val bail = project.objects.property(Boolean::class.java).convention(false)
-    private val suppressExitCode = project.objects.property(Boolean::class.java).convention(false)
-    private val color = project.objects.property(Color::class.java).convention(Color.AUTO)
-    private val disableUnicode = project.objects.property(Boolean::class.java).convention(false)
-    private val globalsVars = project.objects.mapProperty(String::class.java, String::class.java)
-    private val envVars = project.objects.mapProperty(String::class.java, String::class.java)
-    private val verbose = project.objects.property(Boolean::class.java).convention(false)
+    val environment = project.objects.fileProperty()
+    val globals = project.objects.fileProperty()
+    val iterationData = project.objects.fileProperty()
+    val iterationCount = project.objects.property(Int::class.java)
+    val folder = project.objects.fileTree()
+    val workingDir = project.objects.directoryProperty()
+    val noInsecureFileRead = project.objects.property(Boolean::class.java).convention(false)
+//    val exportEnvironment = project.objects.fileProperty()
+//    val exportGlobals = project.objects.fileProperty()
+//    val exportCollection  = project.objects.fileProperty()
+    val timeout  = project.objects.property(Long::class.java)
+    val timeoutRequest  = project.objects.property(Long::class.java)
+    val timeoutScript  = project.objects.property(Long::class.java)
+    val insecure = project.objects.property(Boolean::class.java).convention(false)
+    val ignoreRedirects = project.objects.property(Boolean::class.java).convention(false)
+    val delayRequest = project.objects.property(Long::class.java)
+    val cookieJar = project.objects.fileProperty()
+//    val exportCookieJar = project.objects.fileProperty()
+    val bail = project.objects.property(Boolean::class.java).convention(false)
+    val suppressExitCode = project.objects.property(Boolean::class.java).convention(false)
+    val color = project.objects.property(Color::class.java).convention(Color.AUTO)
+//    val disableUnicode = project.objects.property(Boolean::class.java).convention(false)
+    val globalsVars = project.objects.mapProperty(String::class.java, String::class.java)
+    val envVars = project.objects.mapProperty(String::class.java, String::class.java)
+    val verbose = project.objects.property(Boolean::class.java).convention(false)
 
-//    private val cliReport = true
-//    private val xmlReportDir: String? = null
-//    private val htmlReportDir: String? = null
-//    private val htmlTemplate: String? = null
-//    private val jsonReportDir: String? = null
+//    val cliReport = true
+//    val xmlReportDir: String? = null
+//    val htmlReportDir: String? = null
+//    val htmlTemplate: String? = null
+//    val jsonReportDir: String? = null
+
+
+    fun toJson(): String {
+
+        val jsonObject = jsonObject()
+        jsonObject.addProperty("collection", "./src/test/resources/sample-collection.json")
+        return jsonObject.toString().replace("\"", "<>")
+    }
 
     companion object {
         private const val NAME = "postman"

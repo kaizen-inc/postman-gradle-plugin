@@ -1,5 +1,6 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
+    id 'com.github.node-gradle.node'
     id 'inc.kaizen.postman-gradle-plugin' version '1.0-SNAPSHOT'
 }
 
