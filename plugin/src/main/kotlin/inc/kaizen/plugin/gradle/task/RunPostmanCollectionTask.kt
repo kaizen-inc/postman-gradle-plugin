@@ -13,7 +13,6 @@ open class RunPostmanCollectionTask : DefaultTask() {
 
     init {
         group = PostmanGradlePlugin.PLUGIN_GROUP
-//        dependsOn(listOf(NodeSetupTask.NAME))
 //        outputs.upToDateWhen { true }
     }
 

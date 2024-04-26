@@ -1,5 +1,6 @@
 package inc.kaizen.plugin.gradle
 
+import com.github.gradle.node.task.NodeSetupTask
 import inc.kaizen.plugin.gradle.extension.PostmanExtension
 import inc.kaizen.plugin.gradle.task.RunPostmanCollectionTask
 import org.gradle.api.Plugin
@@ -15,6 +16,8 @@ class PostmanGradlePlugin : Plugin<Project> {
     override fun apply(project: Project): Unit = project.run {
         pluginManager.apply("com.github.node-gradle.node")
         PostmanExtension.create(this)
-        tasks.register(RunPostmanCollectionTask.NAME, RunPostmanCollectionTask::class.java)
+        tasks.register(RunPostmanCollectionTask.NAME, RunPostmanCollectionTask::class.java) {
+            it.dependsOn(listOf(NodeSetupTask.NAME))
+        }
     }
 }

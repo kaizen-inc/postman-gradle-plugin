@@ -25,4 +25,5 @@ postman {
     verbose = true
     collection = file("./src/test/resources/sample-collection.json")
     iterationCount = 50
+    workingDir = project.projectDir
 }
