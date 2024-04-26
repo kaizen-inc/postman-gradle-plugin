@@ -21,6 +21,8 @@ open class RunPostmanCollectionTask : DefaultTask() {
     fun execute(/*inputs: InputChanges*/) {
         val newmanRunner = NewmanRunner()
         val result = newmanRunner.run(project)
-//        println(result)
+        if (result.exitValue != 0) {
+            throw Exception("Exception occurred while executing collection")
+        }
     }
 }

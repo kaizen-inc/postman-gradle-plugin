@@ -33,10 +33,12 @@ open class NewmanRunner() {
         if (javascriptFile.exists()) {
             val command = listOf(javascriptFile.absolutePath, postmanExtension.toJson())
             val nodeExecConfiguration =
-                NodeExecConfiguration(command,
+                NodeExecConfiguration(
+                    command,
                     emptyMap(),
                     project.projectDir,
-                    postmanExtension.bail.get())
+                    postmanExtension.ignoreExitValue()
+                )
 
             return nodeExecRunner.execute(projectApiHelper, extension, nodeExecConfiguration, VariantComputer())
         } else {

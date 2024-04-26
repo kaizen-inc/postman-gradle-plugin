@@ -1,6 +1,5 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
-    id 'com.github.node-gradle.node'
     id 'inc.kaizen.postman-gradle-plugin' version '1.0-SNAPSHOT'
 }
 
@@ -20,4 +19,10 @@ test {
 }
 kotlin {
     jvmToolchain(17)
+}
+
+postman {
+    verbose = true
+    collection = file("./src/test/resources/sample-collection.json")
+    iterationCount = 50
 }
