@@ -10,7 +10,7 @@ version = '1.0-SNAPSHOT'
 gradlePlugin {
     plugins {
         'postman-gradle-plugin' {
-            id = 'inc.kaizen.postman-gradle-plugin'
+            id = 'inc.kaizen.postman'
             implementationClass = 'inc.kaizen.plugin.gradle.PostmanGradlePlugin'
         }
     }

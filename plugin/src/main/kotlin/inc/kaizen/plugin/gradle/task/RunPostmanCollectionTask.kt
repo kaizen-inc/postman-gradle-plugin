@@ -8,7 +8,7 @@ import org.gradle.api.tasks.TaskAction
 open class RunPostmanCollectionTask : DefaultTask() {
 
     companion object {
-        const val NAME = "runPostmanCollection"
+        const val NAME = "runCollection"
     }
 
     init {
