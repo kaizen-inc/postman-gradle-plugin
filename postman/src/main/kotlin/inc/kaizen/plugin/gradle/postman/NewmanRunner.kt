@@ -11,7 +11,7 @@ import org.gradle.api.Project
 import org.gradle.process.ExecResult
 import java.io.IOException
 
-open class NewmanRunner() {
+open class NewmanRunner {
     private val nodeExecRunner = NodeExecRunner()
 
     fun run(project: Project): ExecResult {
