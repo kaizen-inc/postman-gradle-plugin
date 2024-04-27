@@ -1,3 +1,5 @@
+import inc.kaizen.plugin.gradle.task.RunPostmanCollectionTask
+
 plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'inc.kaizen.postman' version '1.0-SNAPSHOT'

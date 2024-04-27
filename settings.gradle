@@ -7,6 +7,6 @@ pluginManagement {
 }
 
 rootProject.name = 'postman-gradle-plugin'
-include 'plugin'
+include 'postman'
 include 'test'
 
