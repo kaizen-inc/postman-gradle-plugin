@@ -1,16 +1,21 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'java-gradle-plugin'
-    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version "1.2.1"
     id 'jacoco'
 }
 
 group = 'inc.kaizen.plugin.gradle'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 
 gradlePlugin {
+    website = "https://github.com/kaizen-inc/postman-gradle-plugin"
+    vcsUrl = "https://github.com/kaizen-inc/postman-gradle-plugin"
     plugins {
         'postman-gradle-plugin' {
+            displayName = "Postman"
+            description = "A Gradle plugin to run postman collection"
+            tags = ["postman", "newman", "node", "npm"]
             id = 'inc.kaizen.postman'
             implementationClass = 'inc.kaizen.plugin.gradle.PostmanGradlePlugin'
         }

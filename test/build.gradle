@@ -1,12 +1,10 @@
-import inc.kaizen.plugin.gradle.task.RunPostmanCollectionTask
-
 plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'inc.kaizen.postman' version '1.0-SNAPSHOT'
 }
 
 group = 'inc.kaizen.plugin.gradle'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 
 repositories {
     mavenCentral()
