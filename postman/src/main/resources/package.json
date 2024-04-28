@@ -1,0 +1,7 @@
+{
+  "name": "postman-gradle-plugin",
+  "version": "0.0.0",
+  "dependencies": {
+    "newman": "6.1.2"
+  }
+}

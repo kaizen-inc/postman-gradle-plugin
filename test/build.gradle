@@ -1,0 +1,29 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+    id 'inc.kaizen.postman' version '1.0-SNAPSHOT'
+}
+
+group = 'inc.kaizen.plugin.gradle'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(17)
+}
+
+postman {
+    verbose = true
+    collection = file("./src/test/resources/sample-collection.json")
+    iterationCount = 50
+    workingDir = project.projectDir
+}
