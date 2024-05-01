@@ -1,9 +1,9 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
-    id 'inc.kaizen.postman' version '1.0-SNAPSHOT'
+    id 'io.github.kaizen-inc.postman' version '1.0'
 }
 
-group = 'inc.kaizen.plugin.gradle'
+group = 'io.github.kaizen-inc.plugin.gradle'
 version = '1.0'
 
 repositories {
