@@ -5,7 +5,7 @@ plugins {
     id 'jacoco'
 }
 
-group = 'io.github.kaizen-inc.plugin.gradle'
+group = 'inc.kaizen.plugin.gradle'
 version = '1.0'
 
 gradlePlugin {
@@ -16,7 +16,7 @@ gradlePlugin {
             displayName = "Postman"
             description = "A Gradle plugin to run postman collection"
             tags = ["postman", "newman", "node", "npm"]
-            id = 'io.github.kaizen-inc.postman'
+            id = 'io.kaizeninc.postman'
             implementationClass = 'inc.kaizen.plugin.gradle.PostmanGradlePlugin'
         }
     }

@@ -9,6 +9,7 @@ import inc.kaizen.plugin.gradle.extension.PostmanExtension
 import org.apache.commons.io.FileUtils
 import org.gradle.api.Project
 import org.gradle.process.ExecResult
+import java.io.File
 import java.io.IOException
 
 open class NewmanRunner {
@@ -21,6 +22,20 @@ open class NewmanRunner {
 
         val extension = NodeExtension[project]
 
+        val javascriptFile = getCollectionRunnerScriptFile(project)
+        val command = listOf(javascriptFile.absolutePath, postmanExtension.toJson())
+        val nodeExecConfiguration =
+            NodeExecConfiguration(
+                command,
+                emptyMap(),
+                project.projectDir,
+                postmanExtension.ignoreExitValue()
+            )
+
+        return nodeExecRunner.execute(projectApiHelper, extension, nodeExecConfiguration, VariantComputer())
+    }
+
+    fun getCollectionRunnerScriptFile(project: Project): File {
         val javascriptFile = project.rootProject.file("/.gradle/postman-runner/collection-runner.js")
         if (!javascriptFile.exists()) {
             try {
@@ -30,21 +45,11 @@ open class NewmanRunner {
                 throw RuntimeException(e)
             }
         }
-        if (javascriptFile.exists()) {
-            val command = listOf(javascriptFile.absolutePath, postmanExtension.toJson())
-            val nodeExecConfiguration =
-                NodeExecConfiguration(
-                    command,
-                    emptyMap(),
-                    project.projectDir,
-                    postmanExtension.ignoreExitValue()
-                )
 
-            return nodeExecRunner.execute(projectApiHelper, extension, nodeExecConfiguration, VariantComputer())
+        if (javascriptFile.exists()) {
+            return javascriptFile
         } else {
-            return project.exec {
-                throw Exception("Resource not found")
-            }
+            throw RuntimeException("Resource not found")
         }
     }
 }

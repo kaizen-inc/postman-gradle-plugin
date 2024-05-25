@@ -3,8 +3,8 @@ plugins {
     id 'com.github.node-gradle.node' version '7.0.2' apply false
 }
 
-group = 'io.github.kaizen-inc.plugin.gradle'
-version = '1.0-SNAPSHOT'
+group = 'inc.kaizen.plugin.gradle'
+version = '1.0'
 
 repositories {
     mavenCentral()

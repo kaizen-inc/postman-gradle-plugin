@@ -3,7 +3,7 @@ plugins {
     id 'io.github.kaizen-inc.postman' version '1.0'
 }
 
-group = 'io.github.kaizen-inc.plugin.gradle'
+group = 'inc.kaizen.plugin.gradle'
 version = '1.0'
 
 repositories {
