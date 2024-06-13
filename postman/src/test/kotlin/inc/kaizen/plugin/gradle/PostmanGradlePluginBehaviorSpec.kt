@@ -9,7 +9,7 @@ class PostmanGradlePluginBehaviorSpec: BehaviorSpec({
         val project = ProjectBuilder.builder().build()
 
         When("the Postman Gradle plugin is applied") {
-            project.pluginManager.apply("io.kaizeninc.postman")
+            project.pluginManager.apply("inc.kaizen.postman")
 
             Then("the plugin should be added to the project") {
                 project.plugins.findPlugin(PostmanGradlePlugin::class.java) shouldNotBe null

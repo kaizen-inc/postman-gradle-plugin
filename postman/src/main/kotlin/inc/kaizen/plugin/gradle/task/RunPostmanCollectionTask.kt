@@ -5,7 +5,7 @@ import inc.kaizen.plugin.gradle.postman.NewmanRunner
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
-open class RunPostmanCollectionTask : DefaultTask() {
+open class RunPostmanCollectionTask: DefaultTask() {
 
     companion object {
         const val NAME = "runCollection"
@@ -13,6 +13,8 @@ open class RunPostmanCollectionTask : DefaultTask() {
 
     init {
         group = PostmanGradlePlugin.PLUGIN_GROUP
+        description = "Run postman collection using newman"
+//        this.dependsOn(InstallNewmanTask.NAME)
 //        outputs.upToDateWhen { true }
     }
 
